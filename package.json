@@ -1,5 +1,5 @@
 {
-  "name": "react-headless-passcode",
+  "name": "@farmisen/react-headless-passcode",
   "version": "1.0.0",
   "description": "A headless UI for building easy to use passcode component",
   "keywords": [
@@ -61,5 +61,8 @@
   "peerDependencies": {
     "react": ">=16.8.0",
     "react-dom": ">=16.8.0"
+  },
+  "publishConfig": {
+    "@farmisen:registry": "https://npm.pkg.github.com"
   }
 }
