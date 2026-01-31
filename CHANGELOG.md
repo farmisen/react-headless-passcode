@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.1](https://github.com/keyurparalkar/react-headless-passcode/compare/v1.0.0...v1.0.1) (2026-01-31)
+
+
+### Bug Fixes
+
+* **hook:** store zero digit as number instead of string ([#6](https://github.com/farmisen/react-headless-passcode/issues/6)) ([98e3ed6](https://github.com/keyurparalkar/react-headless-passcode/commits/98e3ed6b3ebc5b3e2cabe784db2abf7ac7339870)), closes [#3](https://github.com/farmisen/react-headless-passcode/issues/3)
+* **hook:** use clipboardData API for cross-browser paste support ([0c2c530](https://github.com/keyurparalkar/react-headless-passcode/commits/0c2c5300150fdda31f665a3d03c139f699981bd8)), closes [#2](https://github.com/farmisen/react-headless-passcode/issues/2)
+
 ## [1.0.0](https://github.com/keyurparalkar/react-headless-passcode/compare/v0.1.5...v1.0.0) (2023-10-07)
 
 
