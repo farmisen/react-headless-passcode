@@ -1,5 +1,5 @@
 {
-  "name": "react-headless-passcode",
+  "name": "@farmisen/react-headless-passcode",
   "version": "1.0.0",
   "description": "A headless UI for building easy to use passcode component",
   "keywords": [
@@ -9,17 +9,17 @@
   ],
   "maintainers": [
     {
-      "name": "Keyur Paralkar",
-      "email": "keur.plkar@gmail.com"
+      "name": "Fabrice Armisen",
+      "email": "farmisen@gmail.com"
     }
   ],
-  "homepage": "https://github.com/keyurparalkar/react-headless-passcode",
+  "homepage": "https://github.com/farmisen/react-headless-passcode",
   "repository": {
-    "url": "https://github.com/keyurparalkar/react-headless-passcode",
+    "url": "https://github.com/farmisen/react-headless-passcode",
     "type": "git"
   },
   "bugs": {
-    "url": "https://github.com/keyurparalkar/react-headless-passcode/issues"
+    "url": "https://github.com/farmisen/react-headless-passcode/issues"
   },
   "main": "build/index.js",
   "module": "build/index.js",
@@ -61,5 +61,8 @@
   "peerDependencies": {
     "react": ">=16.8.0",
     "react-dom": ">=16.8.0"
+  },
+  "publishConfig": {
+    "@farmisen:registry": "https://npm.pkg.github.com"
   }
 }
