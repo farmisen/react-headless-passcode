@@ -11,18 +11,25 @@ It is a group of input elements with each element only accepting one character. 
 -   [Usage](#usage)
 -   [Features](#features)
 -   [API](#api)
+-   [Contributing](#contributing)
 -   [License](#license)
 
 ## Installation
 
+This package is published to GitHub Packages.
+
 ```shell
-yarn add react-headless-passcode
+# Configure npm/yarn for @farmisen scope
+echo "@farmisen:registry=https://npm.pkg.github.com" >> .npmrc
+
+# Install
+yarn add @farmisen/react-headless-passcode
 ```
 
 ## Usage
 
 ```tsx
-import { usePasscode } from "react-headless-passcode";
+import { usePasscode } from "@farmisen/react-headless-passcode";
 ```
 
 With the `usePasscode` hook you just need to pass the `count` property and in return you get the `array` in which the actual passcode value is stored, various event hanlders that handles the focus management logic between multiple inputs and `refs` that references each input element.
@@ -93,6 +100,47 @@ The hook returns an object that consists of:
 | getEventHandler        | `function`                                         | A function that accepts an index as a parameter. It returns the following event handlers for the input positioned at index `i`: `onChange` `onFocus` `onKeyUp` `onKeyDown` `onPaste` |
 | refs                   | `React.MutableRefObject<HTMLInputElement[] \| []>` | A ref array that contains reference of all the input boxes.                                                                                                                          |
 | isComplete             | `boolean`                                          | A boolean flag that tells if all the input boxes are filled or not.                                                                                                                  |
+
+## Contributing
+
+### Commit Standards
+
+This project uses [Conventional Commits](https://www.conventionalcommits.org/) for automatic changelog generation.
+
+| Type | Description | Version Bump |
+|------|-------------|--------------|
+| `feat` | New feature | Minor |
+| `fix` | Bug fix | Patch |
+| `docs` | Documentation | None |
+| `chore` | Maintenance | None |
+| `refactor` | Code refactoring | None |
+| `test` | Adding tests | None |
+
+Examples:
+```
+feat(hook): add onComplete callback
+fix(utils): handle empty clipboard
+docs: update API reference
+```
+
+### Release Process
+
+1. Ensure all changes are merged to `main`
+2. Run the release script:
+   ```bash
+   yarn release          # auto-detect from commits
+   yarn release:patch    # patch bump (bug fixes)
+   yarn release:minor    # minor bump (new features)
+   yarn release:major    # major bump (breaking changes)
+   ```
+3. Push with tags:
+   ```bash
+   git push --follow-tags origin main
+   ```
+4. Create a [GitHub Release](https://github.com/farmisen/react-headless-passcode/releases) from the tag
+5. GitHub Actions will automatically publish to GitHub Packages
+
+For more details, see [standard-version](https://github.com/conventional-changelog/standard-version).
 
 ## License
 
