@@ -1,6 +1,7 @@
 import "@testing-library/jest-dom";
-import { render, renderHook, screen, waitFor } from "@testing-library/react";
+import { act, render, renderHook, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
+import { BaseSyntheticEvent } from "react";
 import usePasscode from "./usePasscode";
 
 const TestComponent = (props: { isAlphaNumeric: boolean }) => {
@@ -118,5 +119,72 @@ describe("test basic workflow", () => {
 
         // Verify that the value of second input is empty
         expect(secondInput).toHaveValue("");
+    });
+});
+
+describe("test value types in passcode array", () => {
+    const mockEvent = (value: string) =>
+        ({ target: { value } } as BaseSyntheticEvent);
+
+    it("1. zero digit should be stored as number, not string", () => {
+        const { result } = renderHook(() =>
+            usePasscode({ count: 4, isAlphaNumeric: false })
+        );
+
+        act(() => {
+            const onChange = result.current.getEventHandlers(0).onChange;
+            onChange(mockEvent("0"));
+        });
+
+        expect(result.current.passcode[0]).toBe(0);
+        expect(typeof result.current.passcode[0]).toBe("number");
+    });
+
+    it("2. all numeric digits should be stored as numbers", () => {
+        const { result } = renderHook(() =>
+            usePasscode({ count: 4, isAlphaNumeric: false })
+        );
+
+        const digits = ["1", "2", "0", "9"];
+        act(() => {
+            digits.forEach((digit, index) => {
+                const onChange = result.current.getEventHandlers(index).onChange;
+                onChange(mockEvent(digit));
+            });
+        });
+
+        expect(result.current.passcode).toEqual([1, 2, 0, 9]);
+        result.current.passcode.forEach((value) => {
+            expect(typeof value).toBe("number");
+        });
+    });
+
+    it("3. alphanumeric mode should store letters as strings", () => {
+        const { result } = renderHook(() =>
+            usePasscode({ count: 4, isAlphaNumeric: true })
+        );
+
+        const chars = ["a", "1", "b", "0"];
+        act(() => {
+            chars.forEach((char, index) => {
+                const onChange = result.current.getEventHandlers(index).onChange;
+                onChange(mockEvent(char));
+            });
+        });
+
+        expect(result.current.passcode).toEqual(["a", 1, "b", 0]);
+    });
+
+    it("4. numeric mode should not store non-numeric input", () => {
+        const { result } = renderHook(() =>
+            usePasscode({ count: 4, isAlphaNumeric: false })
+        );
+
+        act(() => {
+            const onChange = result.current.getEventHandlers(0).onChange;
+            onChange(mockEvent("a"));
+        });
+
+        expect(result.current.passcode[0]).toBe("");
     });
 });
