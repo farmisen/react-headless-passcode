@@ -27,16 +27,6 @@ export const shouldPreventDefault = (
     return true;
 };
 
-export const getClipboardReadPermission = () => {
-    return navigator.permissions.query({
-        name: "clipboard-read" as PermissionName,
-    });
-};
-
-export const getClipboardContent = () => {
-    return navigator.clipboard.readText();
-};
-
 /**
  *
  * @param arr
