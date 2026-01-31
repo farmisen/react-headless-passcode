@@ -34,13 +34,12 @@ const usePasscode = (props: PasscodeProps) => {
      */
     const getEventHandlers = (index: number) => {
         const onChange = (e: BaseSyntheticEvent) => {
-            // Change the arrayValue and update only when number key is pressed
             setPasscode((preValue: (string | number)[]) => {
                 const newArray = [...preValue];
 
-                if (parseInt(e.target.value)) {
+                if (isNumeric(e.target.value)) {
                     newArray[index] = parseInt(e.target.value);
-                } else {
+                } else if (isAlphaNumeric) {
                     newArray[index] = e.target.value;
                 }
 
@@ -48,7 +47,7 @@ const usePasscode = (props: PasscodeProps) => {
             });
         };
 
-        const onFocus = (e: BaseSyntheticEvent) => {
+        const onFocus = () => {
             setCurrentFocusedIndex(index);
         };
 
