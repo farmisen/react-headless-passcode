@@ -1,5 +1,6 @@
 import {
     BaseSyntheticEvent,
+    ClipboardEvent,
     KeyboardEvent,
     useRef,
     useState,
@@ -7,8 +8,6 @@ import {
 } from "react";
 import {
     ALPHANUMERIC_REGEX,
-    getClipboardContent,
-    getClipboardReadPermission,
     getFilledArray,
     isNumeric,
     shouldPreventDefault,
@@ -98,15 +97,14 @@ const usePasscode = (props: PasscodeProps) => {
             }
         };
 
-        const onPaste = async (e: BaseSyntheticEvent) => {
-            const copyPermission = await getClipboardReadPermission();
-            if (copyPermission.state === "denied") {
-                throw new Error("Not allowed to read clipboard.");
-            }
+        const onPaste = (e: ClipboardEvent<HTMLInputElement>) => {
+            const clipboardContent = e.clipboardData?.getData("text");
+            if (!clipboardContent) return;
 
-            const clipboardContent = await getClipboardContent();
+            e.preventDefault();
+
             try {
-                // We convert the clipboard conent into an passcode of string or number depending upon isAlphaNumeric;
+                // We convert the clipboard content into a passcode of string or number depending upon isAlphaNumeric;
                 let newArray: Array<string | number> =
                     clipboardContent.split("");
                 newArray = isAlphaNumeric
