@@ -16,14 +16,14 @@ It is a group of input elements with each element only accepting one character. 
 
 ## Installation
 
-This package is published to GitHub Packages.
+```shell
+yarn add @farmisen/react-headless-passcode
+```
+
+Or with npm:
 
 ```shell
-# Configure npm/yarn for @farmisen scope
-echo "@farmisen:registry=https://npm.pkg.github.com" >> .npmrc
-
-# Install
-yarn add @farmisen/react-headless-passcode
+npm install @farmisen/react-headless-passcode
 ```
 
 ## Usage

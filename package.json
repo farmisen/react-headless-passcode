@@ -63,6 +63,6 @@
     "react-dom": ">=16.8.0"
   },
   "publishConfig": {
-    "@farmisen:registry": "https://npm.pkg.github.com"
+    "access": "public"
   }
 }
