@@ -1,6 +1,6 @@
 {
   "name": "@farmisen/react-headless-passcode",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A headless UI for building easy to use passcode component",
   "keywords": [
     "passcode",

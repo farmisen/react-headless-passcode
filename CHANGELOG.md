@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.3](https://github.com/keyurparalkar/react-headless-passcode/compare/v1.0.2...v1.0.3) (2026-02-01)
+
+
+### Bug Fixes
+
+* **ci:** checkout release tag instead of branch, use npm publish ([#9](https://github.com/farmisen/react-headless-passcode/issues/9)) ([beb0d01](https://github.com/keyurparalkar/react-headless-passcode/commits/beb0d01fc4660f175ce691355d59b19c735d5783)), closes [#8](https://github.com/farmisen/react-headless-passcode/issues/8)
+
 ### [1.0.2](https://github.com/keyurparalkar/react-headless-passcode/compare/v1.0.1...v1.0.2) (2026-02-01)
 
 ### [1.0.1](https://github.com/keyurparalkar/react-headless-passcode/compare/v1.0.0...v1.0.1) (2026-01-31)
