@@ -26,13 +26,13 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-            ref: release
+          ref: ${{ github.event.release.tag_name }}
       - uses: actions/setup-node@v3
         with:
           node-version: 16
           registry-url: https://npm.pkg.github.com/
       - run: yarn install --frozen-lockfile
       - run: yarn build
-      - run: yarn publish
+      - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
