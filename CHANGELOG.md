@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.5](https://github.com/keyurparalkar/react-headless-passcode/compare/v1.0.4...v1.0.5) (2026-02-01)
+
+
+### Bug Fixes
+
+* **ci:** remove .npmrc to allow workflow registry config ([#13](https://github.com/farmisen/react-headless-passcode/issues/13)) ([e81643c](https://github.com/keyurparalkar/react-headless-passcode/commits/e81643cb958f9c6c7c4996bf87bdc22275e55dff)), closes [#12](https://github.com/farmisen/react-headless-passcode/issues/12)
+
 ### [1.0.4](https://github.com/keyurparalkar/react-headless-passcode/compare/v1.0.3...v1.0.4) (2026-02-01)
 
 ### [1.0.3](https://github.com/keyurparalkar/react-headless-passcode/compare/v1.0.2...v1.0.3) (2026-02-01)
